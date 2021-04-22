@@ -12,7 +12,7 @@ export const NavBar = () => {
     else navItems.current.classList.add("show-nav-items");
   };
   return (
-    <>
+    <div className='mg-1'>
       <div className="navbar">
         <div className="logo">
           <img alt="logo" className="img-logo" src={logo}></img>
@@ -33,6 +33,6 @@ export const NavBar = () => {
         </div>
       </div>
       {account ? <ConnectedBar></ConnectedBar> : ""}
-    </>
+    </div>
   );
 };

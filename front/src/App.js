@@ -13,7 +13,7 @@ function App() {
     <Router>
       <AccountContext.Provider value={[account, setAccount]}>
         <NavBar></NavBar>
-        <div className="page-container">
+        <div className="container">
           <Switch>
             <Route path="/create">
               <Create></Create>

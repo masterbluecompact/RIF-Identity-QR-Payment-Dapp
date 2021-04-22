@@ -6,52 +6,53 @@ import RloginButton from "../components/RloginButton";
 export default function Create() {
   const [account, setAccount] = useContext(AccountContext);
   const [amount, setAmount] = useState("");
-  const [thing, setThing] = useState("");
+  const [name, setName] = useState("");
   const [qr, setQr] = useState(<></>);
 
   const changeAmount = ({ target }) => setAmount(target.value);
-  const changeThing = ({ target }) => setThing(target.value);
+  const changeThing = ({ target }) => setName(target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
     setQr(
       <QRCode
-        size="256"
+        size="300"
         className="qr"
         scale={true}
-        value={JSON.stringify({ amount, account, thing })}
+        value={JSON.stringify({ amount, account, thing: name })}
       ></QRCode>
     );
-    console.log(qr);
   };
   return (
-    <div className="w-100 flex-col-center">
+    <div className="container center">
       {account ? (
-        <div className="flex-col-center">
-          <form className="myform" onSubmit={handleSubmit}>
+        <div>
+          <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Amount</label>
+              <label for="amount">Amount</label>
               <input
                 type="number"
                 step="0.000000001"
                 onChange={changeAmount}
                 name="amount"
+                id="amount"
                 value={amount}
               ></input>
             </div>
             <div className="form-group">
-              <label>Thing</label>
+              <label id="name">Product Name</label>
               <input
                 type="text"
                 onChange={changeThing}
-                name="thing"
-                value={thing}
+                name="name"
+                id="name"
+                value={name}
               ></input>
             </div>
-            <button className="mybutton" type="submit">
+            <button className="btn" type="submit">
               Generate QR
             </button>
           </form>
-          <div className="center">{qr}</div>
+          <div >{qr}</div>
         </div>
       ) : (
         <div className="flex-col-center">
