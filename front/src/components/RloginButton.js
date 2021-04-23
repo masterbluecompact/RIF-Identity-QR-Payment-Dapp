@@ -18,7 +18,7 @@ const rLogin = new RLogin({
 });
 
 export default function RloginButton() {
-  const [_, setAccount] = useContext(AccountContext);
+  const [, setAccount] = useContext(AccountContext);
   const handleLogin = () => {
     rLogin
       .connect()

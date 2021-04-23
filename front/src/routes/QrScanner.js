@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import QrReader from "react-qr-scanner";
-import AccountContext from "../Context"
+import QrReader from "react-qr-reader";
+//import AccountContext from "../Context";
 
 export default function QrScanner() {
-  const [result, setResult] = useState("No result");
+  const [result, setResult] = useState(null);
   // const [account, _] = useContext(AccountContext)
 
   const handleScan = (data) => {
-    setResult(data ? data : "No result")
+    setResult(data ? JSON.stringify(data) : null);
   };
 
   const handleError = (err) => {
@@ -16,20 +16,22 @@ export default function QrScanner() {
   };
 
   const previewStyle = {
-    height: 240,
-    width: 320,
+    width: "100%",
   };
 
   return (
     <div className="container center">
+      <h1 className='mg-1'>Scan a Qr Code</h1>
       <div>
-        <QrReader
-          delay={100}
-          style={previewStyle}
-          onError={handleError}
-          onScan={handleScan}
-          legacyMode
-        />
+        {!result && (
+          <QrReader
+            delay={300}
+            style={previewStyle}
+            onError={handleError}
+            onScan={handleScan}     
+
+          />
+        )}
         <p>{result}</p>
       </div>
     </div>

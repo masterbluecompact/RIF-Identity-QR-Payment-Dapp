@@ -12,6 +12,7 @@
     "qrcode.react": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-qr-reader": "^2.2.1",
     "react-qr-scanner": "^1.0.0-alpha.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
@@ -19,8 +20,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts start ",
+    "build": "react-scripts build && ssl-serve --ssl ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

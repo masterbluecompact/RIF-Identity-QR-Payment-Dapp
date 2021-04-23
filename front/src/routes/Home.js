@@ -4,7 +4,7 @@ import RloginButton from "../components/RloginButton";
 import AccountContext from "../Context";
 import logo from "../logo.png";
 export default function Home() {
-  const [account, _] = useContext(AccountContext);
+  const [account] = useContext(AccountContext);
   return (
     <div className='center'>
       <h1 className="mg-1">Rif QR Payments Dapp</h1>

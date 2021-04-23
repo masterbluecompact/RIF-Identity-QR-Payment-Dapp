@@ -4,7 +4,7 @@ import QRCode from "qrcode.react";
 import RloginButton from "../components/RloginButton";
 
 export default function Create() {
-  const [account, setAccount] = useContext(AccountContext);
+  const [account] = useContext(AccountContext);
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
   const [qr, setQr] = useState(<></>);
