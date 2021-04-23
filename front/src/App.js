@@ -7,6 +7,7 @@ import { NavBar } from "./components/NavBar";
 import Home from "./routes/Home";
 import AccountContext from "./Context";
 import Create from "./routes/Create";
+import QrScanner from './routes/QrScanner'
 function App() {
   const [account, setAccount] = useState("");
   return (
@@ -15,6 +16,9 @@ function App() {
         <NavBar></NavBar>
         <div className="container">
           <Switch>
+            <Route path="/scan">
+              <QrScanner></QrScanner>
+            </Route>
             <Route path="/create">
               <Create></Create>
             </Route>

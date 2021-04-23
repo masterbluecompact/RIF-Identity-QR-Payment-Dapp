@@ -20,14 +20,14 @@ export const NavBar = () => {
             RIF QR Payment
           </Link>
         </div>
-        <a href="#" class="hamburger-menu" onClick={toggleItems}>
-          <i class="fa fa-bars"></i>
+        <a href="#" className="hamburger-menu" onClick={toggleItems}>
+          <i className="fa fa-bars"></i>
         </a>
         <div ref={navItems} className="nav-items ">
           <Link className="nav-item" to="/create">
             Generate a QR Code
           </Link>
-          <Link className="nav-item" href="/scan">
+          <Link className="nav-item" to="/scan">
             Scan a QR Code
           </Link>
         </div>
