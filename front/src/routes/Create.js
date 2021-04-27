@@ -7,8 +7,7 @@ export default function Create() {
   const [account] = useContext(AccountContext);
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
-  const [qr, setQr] = useState(<></>);
-
+  const [qr, setQr] = useState(<></>);;
   const changeAmount = ({ target }) => setAmount(target.value);
   const changeThing = ({ target }) => setName(target.value);
   const handleSubmit = (e) => {

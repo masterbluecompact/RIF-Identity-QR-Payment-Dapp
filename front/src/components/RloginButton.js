@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import RLogin, { RLoginButton } from "@rsksmart/rlogin";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import AccountContext from "../Context";
+import AccountContext, { ProviderContext } from "../Context";
 const rLogin = new RLogin({
   cachedProvider: false,
   providerOptions: {
@@ -14,11 +14,13 @@ const rLogin = new RLogin({
       },
     },
   },
+  backendUrl: "http://localhost:3001",
   supportedChains: [31],
 });
 
 export default function RloginButton() {
   const [, setAccount] = useContext(AccountContext);
+  const [, setProvider] = useContext(ProviderContext);
   const handleLogin = () => {
     rLogin
       .connect()
@@ -26,6 +28,7 @@ export default function RloginButton() {
         provider
           .request({ method: "eth_accounts" })
           .then(([acc]) => setAccount(acc));
+        setProvider(provider);
       })
       .catch((err) => console.log(err));
   };

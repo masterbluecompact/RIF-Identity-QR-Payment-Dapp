@@ -17,7 +17,7 @@ export const NavBar = () => {
         <div className="logo">
           <img alt="logo" className="img-logo" src={logo}></img>
           <Link to="/" className="txt-logo">
-            RIF QR Payment
+            tareefQR <sub>RIF Identity</sub>
           </Link>
         </div>
         <Link className="hamburger-menu" onClick={toggleItems}>

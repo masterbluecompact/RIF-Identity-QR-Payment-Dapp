@@ -39,7 +39,10 @@ img{
   width: 95%;
   max-width: 980px;
 }
+sub{
+  font-size: 0.9rem;
 
+}
 .center {
   text-align: center;
 }
