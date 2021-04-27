@@ -2,15 +2,14 @@ const express = require('express')
 const cors = require('cors')
 const fs = require('fs')
 const setupApp = require('@rsksmart/express-did-auth').default
-const { SimpleSigner, decodeJWT } = require('did-jwt')
+const { ES256KSigner, decodeJWT } = require('did-jwt')
 
 const app = express()
 app.use(cors())
 
-const privateKey = fs.readFileSync('.secret').toString()
-
-const serviceDid = 'did:ethr:rsk:0xB45203885b2A19c18BE8C8732C62C2A7207EC90f'
-const serviceSigner = SimpleSigner(privateKey)
+const privateKey = fs.readFileSync('.secret').toString() // Your Private Key
+const serviceDid = 'did:ethr:rsk:PUT_YOUR_PUBLIC_KEY'
+const serviceSigner = ES256KSigner(privateKey)
 const challengeSecret = 'secrettt'
 const serviceUrl = 'http://localhost:3001'
 
