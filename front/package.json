@@ -21,7 +21,8 @@
   },
   "scripts": {
     "start": "react-scripts start ",
-    "build": "react-scripts build && ssl-serve --ssl ./build",
+    "build": "react-scripts build",
+    "build:ssl": "react-scripts build && ssl-serve --ssl ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
