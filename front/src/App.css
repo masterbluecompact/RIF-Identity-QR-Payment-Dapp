@@ -1,5 +1,5 @@
 :root {
-  --color-alpha: #568a4a;
+  --color-alpha: #75b465;
   --color-bravo: #35552e;
   --color-charlie: #ffffff;
   --border-radius: 16px;
@@ -98,6 +98,12 @@ sub{
   color: var(--color-bravo);
 }
 
+#tar {
+  color: var(--color-bravo);
+}
+#rif {
+  color: var(--color-alpha);
+}
 .hamburger-menu {
   color: var(--accent-color);
   font-size: 2rem;
