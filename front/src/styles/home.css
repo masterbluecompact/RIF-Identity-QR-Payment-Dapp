@@ -1,0 +1,32 @@
+.cta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.cta-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 18rem;
+    margin-bottom: 2rem;
+}
+.cta-item-txt {
+    text-align: center;
+}
+.cta-item-img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.cta-item svg {
+  width: 10rem;
+  height: 10rem;
+}
+
+@media screen and (min-width: 600px) {
+  .cta{
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,25 @@
+.form {
+  border: 1px solid;
+  border-radius: var(--border-radius);
+  font-size: 1.3rem;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+input {
+  width: 95%;
+  font-size: 1.3rem;
+  height: 2em;
+  background-color: #edf7eb;
+  border: 1px solid;
+  padding: 0.2em;
+}
+
+label {
+  margin-bottom: 0.5em;
+}
+.form-group {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

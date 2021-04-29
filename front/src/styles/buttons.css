@@ -1,0 +1,25 @@
+.btn {
+  text-decoration: none;
+  border: 1px solid;
+  background-color: var(--color-alpha);
+  color: var(--color-charlie);
+  border-radius: var(--border-radius);
+  padding: 0.8em 3em;
+  margin: 0.5em;
+}
+.btn:hover {
+  background-color: var(--color-bravo);
+}
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rlogin-button {
+  background-color: var(--color-alpha) !important;
+  color: var(--color-charlie) !important;
+  border-radius: var(--border-radius) !important;
+}
+.rlogin-button:hover {
+  background-color: var(--color-bravo) !important;
+}
