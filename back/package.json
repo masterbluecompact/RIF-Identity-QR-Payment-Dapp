@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@rsksmart/express-did-auth": "^0.1.5",
+    "@rsksmart/express-did-auth": "^0.1.6",
+    "@rsksmart/rif-id-ethr-did": "^0.1.0",
     "cors": "^2.8.5",
-    "did-jwt": "^5.1.2",
+    "did-jwt": "^5.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {

@@ -3,15 +3,18 @@ const cors = require('cors')
 const fs = require('fs')
 const setupApp = require('@rsksmart/express-did-auth').default
 const { ES256KSigner, decodeJWT } = require('did-jwt')
+const { rskDIDFromPrivateKey, rskTestnetDIDFromPrivateKey } = require('@rsksmart/rif-id-ethr-did')
+
+require('dotenv').config() // load dotenv
 
 const app = express()
 app.use(cors())
 
-const privateKey = fs.readFileSync('.secret').toString() // Your Private Key
-const serviceDid = 'did:ethr:rsk:PUT_YOUR_PUBLIC_KEY'
+const privateKey = process.env.PRIVATE_KEY
+const serviceDid = (process.env.IS_TESTNET === '1' ? rskTestnetDIDFromPrivateKey()(privateKey).did : rskDIDFromPrivateKey()(privateKey).did)
 const serviceSigner = ES256KSigner(privateKey)
-const challengeSecret = 'secrettt'
-const serviceUrl = 'http://localhost:3001'
+const challengeSecret = process.env.CHALLENGE_SECRET
+const serviceUrl = `${process.env.SERVICE_URL}:${process.env.SERVICE_PORT}`
 
 function signupBusinessLogic(payload) {
   const emailCredential = payload.sd.credentials['Email']
@@ -36,5 +39,5 @@ app.get('/protected', expressDIDAuthMiddleware, function (req, res) {
   res.send('This endpoint is authenticating')
 })
 
-const port = 3001
+const port = process.env.SERVICE_PORT
 app.listen(port, () => console.log(`App running on port ${port}`))
