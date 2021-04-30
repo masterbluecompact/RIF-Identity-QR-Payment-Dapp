@@ -26,10 +26,10 @@ tareefQR is a qr payments Dapp created for gitcoin bounty : [RIF Identity QR Pay
 ## TODO Rami:
 
 - Create backend for the Dapp (same as [demo workshop application](https://github.com/rsksmart/rlogin-workshop), but might require some changes) 👌
-- Add dotenv stuff
-- Define constants for ERC20 coin (RIF) and try to make it extensible.
-- Embed the ERC20 token address (key : token) to the QR code.
-- Write the transferERC20 function : Args (receiver:address, amount:uint, tokenAddress:address).
+- Add dotenv stuff 👌
+- Define constants for ERC20 coin (RIF) and try to make it extensible. 👌
+- Embed the ERC20 token address (key : token) to the QR code. 👌
+- Write the transferERC20 function : Args (receiver:address, amount:uint, tokenAddress:address). 👌
 
 ## TODO Eehab:
 
