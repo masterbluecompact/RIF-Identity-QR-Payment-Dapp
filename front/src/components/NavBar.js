@@ -39,6 +39,13 @@ export const NavBar = () => {
           >
             Scan a QR Code
           </Link>
+          <Link
+            className="nav-item"
+            onClick={window.innerWidth <= 600 && toggleItems}
+            to="/send"
+          >
+            Send RIF Tokens
+          </Link>
         </nav>
       </div>
       {account ? <ConnectedBar></ConnectedBar> : ""}

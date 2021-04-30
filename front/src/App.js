@@ -8,6 +8,7 @@ import Home from "./routes/Home";
 import AccountContext, { ProviderContext } from "./Context";
 import Create from "./routes/Create";
 import QrScanner from "./routes/QrScanner";
+import Send from './routes/Send'
 import { Footer } from "./components/Footer";
 function App() {
   const [account, setAccount] = useState("");
@@ -25,6 +26,9 @@ function App() {
                 </Route>
                 <Route path="/create">
                   <Create></Create>
+                </Route>
+                <Route path="/send">
+                  <Send></Send>
                 </Route>
                 <Route path="/">
                   <Home></Home>
