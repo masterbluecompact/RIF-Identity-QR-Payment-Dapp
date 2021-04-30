@@ -9,13 +9,11 @@ const memoizedw3 = memoize(rawGetWeb3);
 export const getWeb3 = (url) => memoizedw3(url);
 
 
-const rawGetContract = (rpcUrl, address, abi) => {
+const getContract = (rpcUrl, address, abi) => {
   const web3 = getWeb3(rpcUrl);
   const ret = new web3.eth.Contract(abi, address);
   return ret;
 };
-const memoizedCon = memoize(rawGetContract)
-const getContract = (rpcUrl, address, abi) => memoizedCon(rpcUrl, address, abi)
 
 
 export const getERC677TokenDetails = (
@@ -47,10 +45,10 @@ export const transferERC677Tokens = (
   const token = getContract(rpcUrl, tokenAddress, ERC677Data.abi);
   token.setProvider(provider)
   token.methods.transfer(to, amount).send({ from: from })
-  .on('transactionHash', txHashHandler)
-  .on('confirmation', confirmationHandler)
-  .on('receipt', receiptHandler)
-  .on('error', errorHandler)
+  .on('transactionHash', txHashHandler) // txHashHandler(txHash)
+  .on('confirmation', confirmationHandler) // confirmationHandler(confirmationNumber, receipt)
+  .on('receipt', receiptHandler) // receiptHandler(receipt)
+  .on('error', errorHandler) // errorHandler(err)
 };
 
 
