@@ -1,4 +1,4 @@
-# tareefQR
+# tarrif
 
 ## RSK Hackathon: Building the Future on Bitcoin
 
