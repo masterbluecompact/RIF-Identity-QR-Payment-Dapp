@@ -15,18 +15,19 @@ export default function Send() {
   const [account] = useContext(AccountContext);
   const [provider] = useContext(ProviderContext);
 
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [to, setTo] = useState(""); // receiver's address
 
   const [decimals, setDecimals] = useState(0); // token's decimals
   const [symbol, setSymbol] = useState(""); // token's symbol (RIF, tRIF)
   const [name, setName] = useState(""); // token's name
 
-  const [to, setTo] = useState(""); // receiver's address
-
   const [txHash, setTxHash] = useState(""); // txHash of a sent transaction
 
   useEffect(() => {
     if (!account || !provider) return;
+    console.log(account)
+
     getERC677TokenDetails(
       RSK_RPC_URL[31],
       RIF_TOKEN_ADDRESS[31],
@@ -47,7 +48,7 @@ export default function Send() {
       provider,
       account,
       to,
-      amount,
+      (amount * Math.pow(10, decimals)).toString(),
       setTxHash,
       console.log,
       console.log,
@@ -59,18 +60,19 @@ export default function Send() {
     <div className="container center">
       {account ? (
         <div>
+          <h2>Send {name}</h2>
           <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label for="amount">Amount</label>
               <input
                 type="number"
-                step={Math.pow(10, -1 * decimals).toFixed(decimals)} // not working for some reason, TODO: scale amount up by decimals
+                step="1" // not working for some reason, TODO: scale amount up by decimals
                 onChange={changeAmount}
                 name="amount"
                 id="amount"
                 value={amount}
               ></input>
-              {amount}
+              {amount} {symbol} // help RIF not showing here :(
             </div>
             <div className="form-group">
               <label id="name">To</label>
