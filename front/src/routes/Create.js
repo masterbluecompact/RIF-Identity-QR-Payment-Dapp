@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import AccountContext from "../Context";
 import QRCode from "qrcode.react";
 import RloginButton from "../components/RloginButton";
+import {RIF_TOKEN_ADDRESS} from '../config/constants'
 
 export default function Create() {
   const [account] = useContext(AccountContext);
@@ -17,7 +18,7 @@ export default function Create() {
         size="300"
         className="qr"
         scale={true}
-        value={JSON.stringify({ amount, account, thing: name })}
+        value={JSON.stringify({ amount, account, thing: name, token: RIF_TOKEN_ADDRESS[31] })}
       ></QRCode>
     );
   };
