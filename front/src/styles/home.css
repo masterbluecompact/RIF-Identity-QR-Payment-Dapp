@@ -1,5 +1,5 @@
 .hero {
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
 }
 .cta {
   width: 100%;
@@ -19,22 +19,28 @@
   justify-content: space-between;
   align-items: center;
   width: 18rem;
-  margin-bottom: 2rem;
+  margin-bottom: 7rem;
 }
 .cta-item-txt {
   font-size: 1.1rem;
   text-align: center;
-
+  margin-bottom: 1rem;
+  
   
 }
 .cta-item-img {
   display: flex;
   justify-content: center;
-
+  
 }
 .cta-item svg {
   width: 10rem;
   height: 10rem;
+  margin-bottom: 1rem;
+}
+.hero-text{
+  font-weight: 300;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 770px ) {
