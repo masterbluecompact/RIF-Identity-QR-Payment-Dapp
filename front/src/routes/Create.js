@@ -4,6 +4,7 @@ import QRCode from "qrcode.react";
 import RloginButton from "../components/RloginButton";
 import { RIF_TOKEN_ADDRESS, RSK_RPC_URL } from "../config/constants";
 import { getERC677TokenDetails } from "../utils/essentials";
+import ConnectWalletCard from "../components/ConnectWalletCard";
 
 export default function Create() {
   // Context
@@ -141,10 +142,7 @@ export default function Create() {
           </div>
         </>
       ) : (
-        <div>
-          <p>Connect Your Wallet And Start Making Price Tags</p>
-          <RloginButton></RloginButton>
-        </div>
+        <ConnectWalletCard message={'Connect Your Wallet And Start Making QR Price Tags'}></ConnectWalletCard>
       )}
     </>
   );

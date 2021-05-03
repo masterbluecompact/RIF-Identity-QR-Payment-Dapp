@@ -11,6 +11,7 @@ import {
   RSK_RPC_URL,
   RSK_EXPLORER,
 } from "../config/constants";
+import ConnectWalletCard from "../components/ConnectWalletCard";
 export default function Scan() {
   const [result, setResult] = useState(null);
   const [account] = useContext(AccountContext);
@@ -104,10 +105,7 @@ export default function Scan() {
           {details}
         </>
       ) : (
-        <div>
-          <p>Connect Your Wallet And Start Paying For Stuff</p>
-          <RloginButton></RloginButton>{" "}
-        </div>
+        <ConnectWalletCard message={'Connect Your Wallet And Start Paying QR Price Tags'}></ConnectWalletCard>
       )}
     </>
   );

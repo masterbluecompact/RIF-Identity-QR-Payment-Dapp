@@ -5,6 +5,8 @@
 @import "./home.css";
 @import "./qr.css";
 @import "./table.css";
+@import "./card.css";
+
 :root {
   --color-alpha: #75b465;
   --color-bravo: #35552e;
