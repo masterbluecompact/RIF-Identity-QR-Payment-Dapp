@@ -45,7 +45,7 @@ export default function Create() {
           scale={true}
           value={JSON.stringify({
             To: account,
-            Price: productPrice,
+            Price: productPrice * Math.pow(10, tokenDecimals),
             Name: productName,
             Description: productDescription,
             Token: RIF_TOKEN_ADDRESS[providerChainId],

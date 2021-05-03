@@ -49,7 +49,7 @@ export default function Scan() {
       provider,
       account,
       result["To"],
-      (result["Price"] * Math.pow(10, decimals)).toString(),
+      (result["Price"]).toString(),
       setTxHash,
       console.log,
       console.log,
