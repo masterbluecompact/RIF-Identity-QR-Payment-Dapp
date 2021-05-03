@@ -7,7 +7,7 @@ import { NavBar } from "./components/NavBar";
 import Home from "./routes/Home";
 import AccountContext, { ProviderContext } from "./Context";
 import Create from "./routes/Create";
-import QrScanner from "./routes/QrScanner";
+import Scan from "./routes/Scan";
 import Send from './routes/Send'
 import { Footer } from "./components/Footer";
 function App() {
@@ -22,7 +22,7 @@ function App() {
             <div className="container-wrap">
               <Switch>
                 <Route path="/scan">
-                  <QrScanner></QrScanner>
+                  <Scan></Scan>
                 </Route>
                 <Route path="/create">
                   <Create></Create>
