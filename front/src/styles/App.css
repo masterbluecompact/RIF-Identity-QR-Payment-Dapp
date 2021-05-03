@@ -71,7 +71,7 @@ sub {
   align-items: center;
   flex-wrap: wrap;
   
-  padding-bottom: calc(var(--footer-height) + 1rem);
+  padding-bottom: calc(var(--footer-height) + 4rem);
 }
 
 .flex-row-space-around {
@@ -98,4 +98,28 @@ sub {
 
 .color-danger {
   color: var(--color-danger);
+}
+
+.wallet-card {
+  width: 400px;
+  max-width: 90%;
+
+  border: 1px solid;
+  border-radius: var(--border-radius);
+}
+.wallet-card-msg {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  padding: 1rem;
+  background-color: var(--color-alpha);
+  color: var(--color-charlie);
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+.wallet-card-img svg {
+  margin-bottom: 2rem;
+  height: 18rem;
+}
+.wallet-card-button {
+  margin-bottom: 2rem;
 }

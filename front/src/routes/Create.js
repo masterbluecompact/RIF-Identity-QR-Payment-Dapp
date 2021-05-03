@@ -47,7 +47,7 @@ export default function Create() {
             To: account,
             Price: productPrice,
             Name: productName,
-            Desc: productDescription,
+            Description: productDescription,
             Token: RIF_TOKEN_ADDRESS[providerChainId],
           })}
         ></QRCode>
