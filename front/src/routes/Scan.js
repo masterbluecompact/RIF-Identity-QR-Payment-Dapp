@@ -61,32 +61,37 @@ export default function Scan() {
   };
 
   const details = result ? (
-    <div>
+    <>
       <h2>Details</h2>
-      <table>
-        <tbody>
-        {Object.keys(result).map((field) => (
-          <tr>
-            <td>{field}</td>
-            <td>{result[field]}</td>
-          </tr>
-        ))}
+      <table className="table">
+        <tbody className="table-body">
+          {Object.keys(result).map((field) => (
+            <tr className="table-row">
+              <td className="table-data">{field}</td>
+              <td className="table-data">
+                {result[field] + " "}
+                {field === "Price" ? symbol : ""}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <button onClick={() => startPayment()} className="btn">
-        Send
+        Pay
       </button>
-    </div>
+    </>
   ) : (
     ""
   );
 
   return (
     <>
-          <h2 className="mg-1">Face The QR Code To The Camera To Scan A QR Price Tag</h2>
       {account !== "" ? (
         <>
-          <div className='qr-cam'>
+          <h2 className="mg-1">
+            Face The QR Code To The Camera To Scan A QR Price Tag
+          </h2>
+          <div className="qr-cam">
             {!result && (
               <QrReader
                 delay={300}
@@ -95,12 +100,12 @@ export default function Scan() {
                 onScan={handleScan}
               />
             )}
-            {details}
           </div>
+          {details}
         </>
       ) : (
         <div>
-          <p>Connect your wallet and start paying for stuff</p>
+          <p>Connect Your Wallet And Start Paying For Stuff</p>
           <RloginButton></RloginButton>{" "}
         </div>
       )}

@@ -4,6 +4,7 @@
 @import "./buttons.css";
 @import "./home.css";
 @import "./qr.css";
+@import "./table.css";
 :root {
   --color-alpha: #75b465;
   --color-bravo: #35552e;
@@ -67,6 +68,7 @@ sub {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  
   padding-bottom: calc(var(--footer-height) + 1rem);
 }
 

@@ -141,8 +141,8 @@ export default function Create() {
           </div>
         </>
       ) : (
-        <div className="flex-col-center">
-          <p>Please Connect Your Wallet First !!</p>
+        <div>
+          <p>Connect Your Wallet And Start Making Price Tags</p>
           <RloginButton></RloginButton>
         </div>
       )}
