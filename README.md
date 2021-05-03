@@ -4,7 +4,9 @@
 
 ## Description
 
-tareefQR is a qr payments Dapp created for gitcoin bounty : [RIF Identity QR Payments DApp](https://gitcoin.co/issue/rsksmart/rsk-gitcoin-hackathon-2021/14/100025543) in the RSK Hackathon.
+tarrif QR code based payments app, where one user can generate a QR price tag
+for a product or scan a QR code for another user and send them
+payments on the RSK Network denominated in an ERC20 token.
 
 ## Feature:
 
@@ -35,9 +37,9 @@ tareefQR is a qr payments Dapp created for gitcoin bounty : [RIF Identity QR Pay
 
 - Add the Provider (and maybe the chainID) to the context. 👌
 - Prevent scanning QR code if the user is not loggedin or verified. 👌
-- Print the information of the QR code in a human readable way with a button that when clicked calls transferERC20().
-- Support two types of QR code (one has full information, and one is missing amount and productName and productImage)
-- Better styling.
+- Print the information of the QR code in a human readable way with a button that when clicked calls transferERC20() 👌.
+- Support two types of QR code (one has full information, and one is missing amount and productName and productImage)👌.
+- Better styling 👌.
 
 ## Future improvements:
 
