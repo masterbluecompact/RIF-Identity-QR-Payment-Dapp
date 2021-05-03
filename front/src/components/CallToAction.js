@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import RloginButton from "./RloginButton";
 import AccountContext from "../Context";
+import { Link } from "react-router-dom";
 export const CallToAction = () => {
   const [account, _] = useContext(AccountContext);
 
@@ -536,13 +537,10 @@ export const CallToAction = () => {
           </svg>
         </div>
         <div className="cta-item-txt">
-          {account === "" ? (
-            <div>
-              <RloginButton></RloginButton>
-            </div>
-          ) : (
-            "Connected"
-          )}
+          Connect Your Wallet With An Email Verified Adderss 
+        </div>
+        <div>
+          {account === "" ? <RloginButton></RloginButton> : "Connected ✅"}
         </div>
       </div>
       <div className="cta-item">
@@ -607,9 +605,13 @@ export const CallToAction = () => {
           </svg>
         </div>
         <div className="cta-item-txt">
-          Generate price tag with your address and all the information in a QR
+          Generate Price Tag With Your Address And All The Information In A QR
           Code
         </div>
+
+        <Link  className="btn" to="/create">
+          Generate a QR Code
+        </Link>
       </div>
       <div className="cta-item">
         <div className="cta-item-img">
@@ -850,8 +852,11 @@ export const CallToAction = () => {
           </svg>
         </div>
         <div className="cta-item-txt">
-          Scan a QR code and complete the transcation
+          Scan a QR Code And Complete The Transcation
         </div>
+        <Link className="btn " to="/scan">
+          Scan a QR Code
+        </Link>
       </div>
     </div>
   );

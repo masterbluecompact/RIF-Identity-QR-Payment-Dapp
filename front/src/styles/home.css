@@ -1,34 +1,64 @@
+.hero {
+  margin-bottom: 5rem;
+}
 .cta {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+
   padding: .5rem; 
+  
 }
 .cta-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 18rem;
-    margin-bottom: 2rem;
+
+  height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 18rem;
+  margin-bottom: 2rem;
 }
 .cta-item-txt {
-    text-align: center;
+  font-size: 1.1rem;
+  text-align: center;
+
+  
 }
 .cta-item-img {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+
 }
 .cta-item svg {
   width: 10rem;
   height: 10rem;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 770px ) {
   .cta{
     flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .hero-text  {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+}
+@media screen and (min-width: 1100px) {
+ 
+  .cta{
+    flex-direction: row;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .hero-text  {
+    width: 60%;
+    margin: 0 auto;
   }
   
 }
