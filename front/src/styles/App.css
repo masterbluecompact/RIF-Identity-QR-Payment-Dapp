@@ -1,19 +1,21 @@
-@import './footer.css';
-@import './navbar.css';
-@import './form.css';
-@import './buttons.css';
-@import './home.css';
+@import "./footer.css";
+@import "./navbar.css";
+@import "./form.css";
+@import "./buttons.css";
+@import "./home.css";
+@import "./qr.css";
 :root {
   --color-alpha: #75b465;
   --color-bravo: #35552e;
   --color-charlie: #ffffff;
+  --color-danger: #8a0000;
   --border-radius: 16px;
-  --footer-height : 10vh;
+  --footer-height: 10vh;
 }
 * {
   box-sizing: border-box;
-  max-width: 100%;
   transition: all 200ms ease;
+  max-width: 100%;
 }
 
 body {
@@ -27,9 +29,12 @@ a {
   text-decoration: none;
 }
 
-
-h1 {
+h1 , h2 {
   margin: 0;
+  margin-bottom: 1rem;
+}
+h1 {
+
   font-size: 2.5rem;
 }
 
@@ -38,13 +43,14 @@ p {
   padding: 0;
   line-height: 1.9rem;
   font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 img {
   max-width: 100%;
 }
 
 sub {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .container {
@@ -53,14 +59,21 @@ sub {
 }
 
 .container-wrap {
-  margin: 0 auto;
   width: 95%;
-  max-width: 980px;
-  padding-bottom: calc(var(--footer-height) + 1rem)  ;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: calc(var(--footer-height) + 1rem);
 }
 
-.center {
-  text-align: center;
+.flex-row-space-around {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .mg-1 {
@@ -78,5 +91,6 @@ sub {
   text-align: center;
 }
 
-
-
+.color-danger {
+  color: var(--color-danger);
+}

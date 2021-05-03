@@ -1,0 +1,21 @@
+:root {
+    --qr-size : 400px
+}
+
+.qr {
+    max-width: 80vw !important;
+    max-height: 80vw !important;
+
+}
+
+.qr-placeholder {
+    width: var(--qr-size);
+    height: var(--qr-size);
+    max-width: var(--qr-size);
+    max-height: var(--qr-size)50;
+    border: 1px dashed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+}

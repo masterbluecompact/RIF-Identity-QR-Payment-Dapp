@@ -3,15 +3,21 @@
   border-radius: var(--border-radius);
   font-size: 1.3rem;
   padding: 1em;
-  margin-bottom: 1em;
+  width: 100%;
+  margin-bottom: 2rem;
 }
-input {
-  width: 95%;
+.form-group input,
+.form-group textarea {
   font-size: 1.3rem;
-  height: 2em;
   background-color: #edf7eb;
   border: 1px solid;
   padding: 0.2em;
+}
+.form-group input {
+  height: 2em;
+}
+.form-group textarea {
+  height: 10rem;
 }
 
 label {
@@ -21,5 +27,28 @@ label {
   margin-bottom: 1em;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 720px) {
+  .form-group {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .form-group input,
+  .form-group textarea {
+    margin-left: 3rem;
+    width: 60%;
+  }
+  .form-group label {
+    width: 30% ;
+  }
+  
+}
+@media screen and (min-width: 1170px) {
+  .form{
+    
+    width: 60%;
+  }
 }
