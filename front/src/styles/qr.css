@@ -19,3 +19,7 @@
     align-items: center;
     border-radius: var(--border-radius);
 }
+.qr-cam {
+    width: 500px;
+    max-width: 100%;
+}

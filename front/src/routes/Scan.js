@@ -47,8 +47,8 @@ export default function Scan() {
       RSK_RPC_URL[providerChainId],
       provider,
       account,
-      result["account"],
-      (result["amount"] * Math.pow(10, decimals)).toString(),
+      result["To"],
+      (result["Price"] * Math.pow(10, decimals)).toString(),
       setTxHash,
       console.log,
       console.log,
@@ -64,23 +64,14 @@ export default function Scan() {
     <div>
       <h2>Details</h2>
       <table>
-        <tr>
-          <td>To</td>
-          <td>{result["account"]}</td>
-        </tr>
-        <tr>
-          <td>Amount</td>
-          <td>
-            {
-              ((result["amount"] * Math.pow(10, decimals)).toString(),
-              +" " + symbol)
-            }
-          </td>
-        </tr>
-        <tr>
-          <td>Product Name</td>
-          <td>{result["thing"]}</td>
-        </tr>
+        <tbody>
+        {Object.keys(result).map((field) => (
+          <tr>
+            <td>{field}</td>
+            <td>{result[field]}</td>
+          </tr>
+        ))}
+        </tbody>
       </table>
       <button onClick={() => startPayment()} className="btn">
         Send
@@ -91,11 +82,11 @@ export default function Scan() {
   );
 
   return (
-    <div className="container center">
+    <>
+          <h2 className="mg-1">Face The QR Code To The Camera To Scan A QR Price Tag</h2>
       {account !== "" ? (
         <>
-          <h1 className="mg-1">Scan a Qr Code</h1>
-          <div>
+          <div className='qr-cam'>
             {!result && (
               <QrReader
                 delay={300}
@@ -113,6 +104,6 @@ export default function Scan() {
           <RloginButton></RloginButton>{" "}
         </div>
       )}
-    </div>
+    </>
   );
 }

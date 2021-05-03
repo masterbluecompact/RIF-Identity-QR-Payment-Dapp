@@ -43,11 +43,11 @@ export default function Create() {
           className="qr"
           scale={true}
           value={JSON.stringify({
-            productPrice,
-            account,
-            productName,
-            productDescription,
-            token: RIF_TOKEN_ADDRESS[providerChainId],
+            To: account,
+            Price: productPrice,
+            Name: productName,
+            Desc: productDescription,
+            Token: RIF_TOKEN_ADDRESS[providerChainId],
           })}
         ></QRCode>
       );
@@ -98,7 +98,7 @@ export default function Create() {
           <div className="flex-row-space-around">
             <form className="form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label for="amount">Amount {`(${tokenSymbol})`}</label>
+                <label for="price">Product Price {`(${tokenSymbol})`}</label>
                 <input
                   min={0}
                   type="number"
