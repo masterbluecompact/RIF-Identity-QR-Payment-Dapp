@@ -11,6 +11,7 @@ export const NavBar = () => {
       navItems.current.classList.remove("show-nav-items");
     else navItems.current.classList.add("show-nav-items");
   };
+
   return (
     <header className="mg-1">
       <div className="navbar">
@@ -39,7 +40,15 @@ export const NavBar = () => {
           >
             Scan a QR Code
           </Link>
-         
+          <button
+            className="nav-item"
+            onClick={() => {
+              localStorage.clear();
+              if (window.innerWidth <= 600) toggleItems();
+            }}
+          >
+            Clear local storage
+          </button>
         </nav>
       </div>
       {account ? <ConnectedBar></ConnectedBar> : ""}
