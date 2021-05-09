@@ -4,7 +4,7 @@ const fs = require('fs')
 const setupApp = require('@rsksmart/express-did-auth').default
 const { ES256KSigner, decodeJWT } = require('did-jwt')
 const { rskDIDFromPrivateKey, rskTestnetDIDFromPrivateKey } = require('@rsksmart/rif-id-ethr-did')
-
+var https = require('https')
 require('dotenv').config() // load dotenv
 
 const app = express()
@@ -40,4 +40,19 @@ app.get('/protected', expressDIDAuthMiddleware, function (req, res) {
 })
 
 const port = process.env.SERVICE_PORT
-app.listen(port, () => console.log(`App running on port ${port}`))
+
+
+
+
+
+https.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert')
+}, app)
+.listen(port, function () {
+  console.log('Example app listening on port 3001! Go to https://localhost:3001/')
+})
+
+
+
+/* app.listen(port, () => console.log(`App running on port ${port}`)) */
