@@ -35,6 +35,6 @@
         flex-direction: row;
     }
     .table-data:first-child {
-        width: 5rem;
+        width: 10rem;
     }
 }
