@@ -28,6 +28,19 @@ export default function Create() {
   const [generateQr, setGenerateQr] = useState(false);
   const [validationErrorMsg, setvalidationErrorMsg] = useState("Qr Code");
 
+  const downloadQR = () => {
+    const canvas = document.getElementById("qrcode");
+    const pngUrl = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    let downloadLink = document.createElement("a");
+    downloadLink.href = pngUrl;
+    downloadLink.download = "qrcode.png";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
+
   // Form Handlers
   const handleChangeAmount = ({ target }) => setProductPrice(target.value);
   const handleChangeProductName = ({ target }) => setProductName(target.value);
@@ -39,18 +52,22 @@ export default function Create() {
     validateFrom();
     if (!validationError) {
       setQrCode(
-        <QRCode
-          size={400}
-          className="qr"
-          scale={true}
-          value={JSON.stringify({
-            To: account,
-            Price: productPrice * Math.pow(10, tokenDecimals),
-            Name: productName,
-            Description: productDescription,
-            Token: RIF_TOKEN_ADDRESS[providerChainId],
-          })}
-        ></QRCode>
+        <div className='qr-wrapper'>
+          <QRCode
+            id="qrcode"
+            size={400}
+            className="qr"
+            scale={true}
+            value={JSON.stringify({
+              To: account,
+              Price: productPrice * Math.pow(10, tokenDecimals),
+              Name: productName,
+              Description: productDescription,
+              Token: RIF_TOKEN_ADDRESS[providerChainId],
+            })}
+          />
+          <button className='btn' onClick={downloadQR}>Download QR</button>
+        </div>
       );
     }
   };
@@ -142,7 +159,9 @@ export default function Create() {
           </div>
         </>
       ) : (
-        <ConnectWalletCard message={'Connect Your Wallet And Start Making QR Price Tags'}></ConnectWalletCard>
+        <ConnectWalletCard
+          message={"Connect Your Wallet And Start Making QR Price Tags"}
+        ></ConnectWalletCard>
       )}
     </>
   );

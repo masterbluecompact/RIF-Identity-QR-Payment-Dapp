@@ -40,7 +40,7 @@ export const NavBar = () => {
           >
             Scan a QR Code
           </Link>
-          <button
+          <Link
             className="nav-item"
             onClick={() => {
               localStorage.clear();
@@ -48,7 +48,7 @@ export const NavBar = () => {
             }}
           >
             Clear local storage
-          </button>
+          </Link>
         </nav>
       </div>
       {account ? <ConnectedBar></ConnectedBar> : ""}
