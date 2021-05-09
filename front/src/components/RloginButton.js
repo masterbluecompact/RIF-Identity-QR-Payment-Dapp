@@ -14,7 +14,7 @@ const rLogin = new RLogin({
       },
     },
   },
-  backendUrl: "http://localhost:3001",
+  backendUrl: process.env.REACT_APP_BACKEND_ADDRESS,
   supportedChains: [31],
 });
 

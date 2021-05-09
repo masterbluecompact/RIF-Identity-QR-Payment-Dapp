@@ -49,7 +49,7 @@ export default function Scan() {
       provider,
       account,
       result["To"],
-      (result["Price"]).toString(),
+      result["Price"].toString(),
       setTxHash,
       console.log,
       console.log,
@@ -70,7 +70,9 @@ export default function Scan() {
             <tr className="table-row">
               <td className="table-data">{field}</td>
               <td className="table-data">
-                {result[field] + " "}
+                {field === "Price"
+                  ? (result[field] * Math.pow(10, -decimals)).toString()
+                  : result[field]}
                 {field === "Price" ? symbol : ""}
               </td>
             </tr>
@@ -105,7 +107,9 @@ export default function Scan() {
           {details}
         </>
       ) : (
-        <ConnectWalletCard message={'Connect Your Wallet And Start Paying QR Price Tags'}></ConnectWalletCard>
+        <ConnectWalletCard
+          message={"Connect Your Wallet And Start Paying QR Price Tags"}
+        ></ConnectWalletCard>
       )}
     </>
   );
