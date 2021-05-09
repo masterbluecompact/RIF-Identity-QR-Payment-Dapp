@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import QrReader from "react-qr-reader";
-import RloginButton from "../components/RloginButton";
+import { Decoder } from "@nuintun/qrcode";
 import AccountContext, { ProviderContext } from "../Context";
 import {
   transferERC677Tokens,
@@ -12,6 +12,7 @@ import {
   RSK_EXPLORER,
 } from "../config/constants";
 import ConnectWalletCard from "../components/ConnectWalletCard";
+const jsqr = require("jsqr");
 export default function Scan() {
   const [result, setResult] = useState(null);
   const [account] = useContext(AccountContext);
@@ -31,7 +32,29 @@ export default function Scan() {
     console.error(err);
   };
 
+  // scan from file stuff
+  const [qrFilePath, setQrFilePath] = useState(null);
+  const handleFile = ({ target }) => {
+    setQrFilePath(URL.createObjectURL(target.files[0]));
+  };
+
   useEffect(() => {
+    if (qrFilePath) {
+      const qrCodeScanner = new Decoder();
+      qrCodeScanner
+        .scan(qrFilePath)
+        .then((res) => {
+          setResult(JSON.parse(res.data));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [qrFilePath]);
+
+  useEffect(() => {
+    setResult(null);
+    setQrFilePath(null);
     if (!account || !provider) return;
     getERC677TokenDetails(
       RSK_RPC_URL[providerChainId],
@@ -96,12 +119,21 @@ export default function Scan() {
           </h2>
           <div className="qr-cam">
             {!result && (
-              <QrReader
-                delay={300}
-                style={previewStyle}
-                onError={handleError}
-                onScan={handleScan}
-              />
+              <>
+                <QrReader
+                  delay={300}
+                  style={previewStyle}
+                  onError={handleError}
+                  onScan={handleScan}
+                />
+                <h3>OR</h3>
+
+                <input
+                  className="btn"
+                  type="file"
+                  onChange={handleFile}
+                ></input>
+              </>
             )}
           </div>
           {details}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@nuintun/qrcode": "^3.0.1"
+  }
+}
