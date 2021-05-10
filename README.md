@@ -17,29 +17,25 @@ payments on the RSK Network denominated in an ERC20 token.
 
 ### backend:
 
-`cd back && npm start`
+```
+cd back
+cp .env.example
+npm start:local
+```
 
 ### front:
 
-`cd front && yarn start`
 
-> p.s.: there is an issue with QR scanning on http, but it works fine on https, to test this: `cd front && yarn build:ssl`
+First we need to check `/front/.env` and change `REACT_APP_BACKEND_ADDRESS` to be the same address printed on the backend console.
 
-## TODO Rami:
+For example: when we run the backend we get `app listening on port 3001! Go to https://192.168.1.12:3001` so we set `REACT_APP_BACKEND_ADDRESS=https://192.168.1.12:3001`
 
-- Create backend for the Dapp (same as [demo workshop application](https://github.com/rsksmart/rlogin-workshop), but might require some changes) 👌
-- Add dotenv stuff 👌
-- Define constants for ERC20 coin (RIF) and try to make it extensible. 👌
-- Embed the ERC20 token address (key : token) to the QR code. 👌
-- Write the transferERC20 function : Args (receiver:address, amount:uint, tokenAddress:address). 👌
 
-## TODO Eehab:
+```
+cd front
+yarn start
+```
 
-- Add the Provider (and maybe the chainID) to the context. 👌
-- Prevent scanning QR code if the user is not loggedin or verified. 👌
-- Print the information of the QR code in a human readable way with a button that when clicked calls transferERC20() 👌.
-- Support two types of QR code (one has full information, and one is missing amount and productName and productImage)👌.
-- Better styling 👌.
 
 ## Future improvements:
 
@@ -47,3 +43,16 @@ payments on the RSK Network denominated in an ERC20 token.
 - Support RNS instead of receiver's address.
 - Embed a product image in the QR code.
 - Convert to PWA or an Android App.
+
+### Important notes for testers/reviewers:
+- If we're only testing on localhost the app would work fine on HTTP.
+- If we would like to test functionality globally (tested on lan) both the front-end and the back-end need to be served with SSL (because most of modern web browsers don't allow access to media devices on plain HTTP); follow the steps below
+  
+  check `/back/.env.example` and change GLOBAL_SERVICE_ADDRESS according to the ip address of the device hosting the backend, copy `.env.example` to `.env`
+  
+  run the backend: `npm start:global:ssl` (visit the address on the console in your web browser to add the certificate, we're using self-signed certificate just as a POC)
+
+  And don't forget to check the first step in running the front-end, this is a crucial step.
+
+
+
