@@ -27,10 +27,6 @@ const serviceUrl = `${process.env.USE_SSL === "1" ? "https" : "http"}://${
     : process.env.GLOBAL_SERVICE_URL
 }:${process.env.SERVICE_PORT}`;
 
-console.log(process.env.USE_GLOBAL);
-console.log(process.env.USE_SSL)
-console.log(serviceUrl);
-
 function signupBusinessLogic(payload) {
   const emailCredential = payload.sd.credentials["Email"];
   console.log(emailCredential);
