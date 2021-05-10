@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:local": "node index.js",
-    "start:global": "USE_GLOBAL=1 index.js",
-    "start:local:ssl": "USE_SSL=1 index.js",
-    "start:global:ssl": "USE_SSL=1 USE_GLOBAL=1 index.js"
+    "start:global": "USE_GLOBAL=1 node index.js",
+    "start:local:ssl": "USE_SSL=1 node index.js",
+    "start:global:ssl": "USE_SSL=1 USE_GLOBAL=1 node index.js"
   },
   "author": "",
   "license": "ISC",
