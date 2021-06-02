@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nuintun/qrcode": "^3.0.1",
     "@rsksmart/erc677": "^2.0.0",
     "@rsksmart/rlogin": "^1.0.5",
     "@testing-library/jest-dom": "^5.12.0",

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import AccountContext, { ProviderContext } from "../Context";
 import QRCode from "qrcode.react";
-import RloginButton from "../components/RloginButton";
 import { RIF_TOKEN_ADDRESS, RSK_RPC_URL } from "../config/constants";
 import { getERC677TokenDetails } from "../utils/essentials";
 import ConnectWalletCard from "../components/ConnectWalletCard";
@@ -15,7 +14,7 @@ export default function Create() {
   // ERC677Token State
   const [tokenDecimals, setTokenDecimals] = useState(0);
   const [tokenSymbol, setTokenSymbol] = useState("");
-  const [tokenName, setTokenName] = useState("");
+  const [, setTokenName] = useState("");
 
   // Generated QR Code State
   const [qrCode, setQrCode] = useState(<></>);
@@ -52,7 +51,7 @@ export default function Create() {
     validateFrom();
     if (!validationError) {
       setQrCode(
-        <div className='qr-wrapper'>
+        <div className="qr-wrapper">
           <QRCode
             id="qrcode"
             size={400}
@@ -66,7 +65,9 @@ export default function Create() {
               Token: RIF_TOKEN_ADDRESS[providerChainId],
             })}
           />
-          <button className='btn' onClick={downloadQR}>Download QR</button>
+          <button className="btn" onClick={downloadQR}>
+            Download QR
+          </button>
         </div>
       );
     }
@@ -101,7 +102,7 @@ export default function Create() {
       setTokenSymbol,
       setTokenDecimals
     );
-  }, [account]);
+  }, [account, provider, providerChainId]);
 
   return (
     <>

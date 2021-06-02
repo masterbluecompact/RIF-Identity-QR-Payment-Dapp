@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { CallToAction } from "../components/CallToAction";
-import AccountContext from "../Context";
 import logo from "../logo.png";
 export default function Home() {
   return (

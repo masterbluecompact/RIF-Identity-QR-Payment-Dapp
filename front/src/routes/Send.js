@@ -4,11 +4,7 @@ import {
   getERC677TokenDetails,
   transferERC677Tokens,
 } from "../utils/essentials";
-import {
-  RIF_TOKEN_ADDRESS,
-  RSK_RPC_URL,
-  RSK_EXPLORER,
-} from "../config/constants";
+import { RIF_TOKEN_ADDRESS, RSK_RPC_URL } from "../config/constants";
 import RloginButton from "../components/RloginButton";
 
 export default function Send() {
@@ -22,11 +18,11 @@ export default function Send() {
   const [symbol, setSymbol] = useState(""); // token's symbol (RIF, tRIF)
   const [name, setName] = useState(""); // token's name
 
-  const [txHash, setTxHash] = useState(""); // txHash of a sent transaction
+  const [, setTxHash] = useState(""); // txHash of a sent transaction
 
   useEffect(() => {
     if (!account || !provider) return;
-    console.log(account)
+    console.log(account);
 
     getERC677TokenDetails(
       RSK_RPC_URL[31],
@@ -35,7 +31,7 @@ export default function Send() {
       setSymbol,
       setDecimals
     );
-  }, [account]);
+  }, [account, provider]);
 
   const changeAmount = ({ target }) => setAmount(target.value);
   const changeTo = ({ target }) => setTo(target.value);
@@ -72,7 +68,7 @@ export default function Send() {
                 id="amount"
                 value={amount}
               ></input>
-              {amount} {symbol} // help RIF not showing here :(
+              {amount} {symbol} (// help RIF not showing here :()
             </div>
             <div className="form-group">
               <label id="name">To</label>

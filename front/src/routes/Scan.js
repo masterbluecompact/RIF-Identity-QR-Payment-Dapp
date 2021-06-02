@@ -6,13 +6,8 @@ import {
   transferERC677Tokens,
   getERC677TokenDetails,
 } from "../utils/essentials";
-import {
-  RIF_TOKEN_ADDRESS,
-  RSK_RPC_URL,
-  RSK_EXPLORER,
-} from "../config/constants";
+import { RIF_TOKEN_ADDRESS, RSK_RPC_URL } from "../config/constants";
 import ConnectWalletCard from "../components/ConnectWalletCard";
-const jsqr = require("jsqr");
 export default function Scan() {
   const [result, setResult] = useState(null);
   const [account] = useContext(AccountContext);
@@ -21,8 +16,8 @@ export default function Scan() {
 
   const [decimals, setDecimals] = useState(0); // token's decimals
   const [symbol, setSymbol] = useState(""); // token's symbol (RIF, tRIF)
-  const [name, setName] = useState(""); // token's name
-  const [txHash, setTxHash] = useState(""); // txHash of a sent transaction
+  const [, setName] = useState(""); // token's name
+  const [, setTxHash] = useState(""); // txHash of a sent transaction
   const handleScan = (data) => {
     setResult(JSON.parse(data));
   };
@@ -63,7 +58,7 @@ export default function Scan() {
       setSymbol,
       setDecimals
     );
-  }, [account]);
+  }, [account, provider, providerChainId]);
 
   const startPayment = () => {
     transferERC677Tokens(
