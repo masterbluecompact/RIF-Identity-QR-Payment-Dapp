@@ -56,7 +56,6 @@ export default function Create() {
             id="qrcode"
             size={400}
             className="qr"
-            scale
             value={JSON.stringify({
               To: account,
               Price: productPrice * Math.pow(10, tokenDecimals),
