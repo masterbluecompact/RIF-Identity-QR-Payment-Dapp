@@ -9,9 +9,9 @@
 }
 
 .show-nav-items {
-  margin-top: 0.6em;
   display: flex;
   flex-direction: column;
+  margin-top: 0.6em;
   border-radius: var(--border-radius);
   border: 1px solid;
   padding: 0.5em;
@@ -73,5 +73,10 @@
   .nav-item {
     margin: 0 0.4em;
     border: 1px solid;
+  }
+  .show-nav-items {
+    border-width: 0;
+    padding: 0;
+    margin: 0;
   }
 }

@@ -56,7 +56,7 @@ export default function Create() {
             id="qrcode"
             size={400}
             className="qr"
-            scale={true}
+            scale
             value={JSON.stringify({
               To: account,
               Price: productPrice * Math.pow(10, tokenDecimals),
@@ -78,17 +78,13 @@ export default function Create() {
       setvalidationError(true);
       setGenerateQr(false);
       setvalidationErrorMsg("Please Enter A Product Price");
-      console.log("no price");
     } else if (productPrice <= 0) {
       setvalidationError(true);
       setGenerateQr(false);
       setvalidationErrorMsg("Please Enter A Valid Product Price");
-      console.log("low price");
     } else {
-      console.log("yay");
       setGenerateQr(true);
       setvalidationError(false);
-      console.log(validationError);
     }
   };
 
@@ -117,7 +113,9 @@ export default function Create() {
           <div className="flex-row-space-around">
             <form className="form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label for="price">Product Price {`(${tokenSymbol})`}</label>
+                <label htmlFor="price">
+                  Product Price {`(${tokenSymbol})`}
+                </label>
                 <input
                   min={0}
                   type="number"
@@ -125,7 +123,7 @@ export default function Create() {
                   onChange={handleChangeAmount}
                   name="price"
                   id="price"
-                  value={productPrice}
+                  value={productPrice || ""}
                 ></input>
               </div>
               <div className="form-group">
@@ -135,7 +133,7 @@ export default function Create() {
                   onChange={handleChangeProductName}
                   name="name"
                   id="name"
-                  value={productName}
+                  value={productName || ""}
                 ></input>
               </div>
               <div className="form-group">
@@ -145,7 +143,7 @@ export default function Create() {
                   onChange={handleChangeProductDescription}
                   name="desc"
                   id="desc"
-                  value={productDescription}
+                  value={productDescription || ""}
                 ></textarea>
               </div>
               <button className="btn" type="submit">

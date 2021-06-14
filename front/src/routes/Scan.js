@@ -85,7 +85,7 @@ export default function Scan() {
       <table className="table">
         <tbody className="table-body">
           {Object.keys(result).map((field) => (
-            <tr className="table-row">
+            <tr key={field} className="table-row">
               <td className="table-data">{field}</td>
               <td className="table-data">
                 {field === "Price"

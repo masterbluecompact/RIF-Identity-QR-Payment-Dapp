@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function WalletSVG() {
+export default function ConnectWalletSVG() {
   return (
     <svg
       id="baed4b18-14ee-447f-bd84-b0265ca0ad8a"

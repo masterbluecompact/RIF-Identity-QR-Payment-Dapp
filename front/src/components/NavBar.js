@@ -22,25 +22,26 @@ export const NavBar = () => {
             <span id="rif">rif</span> <sub>RIF Identity</sub>
           </Link>
         </div>
-        <Link className="hamburger-menu" onClick={toggleItems}>
+        <button href="#" className="hamburger-menu" onClick={toggleItems}>
           <i className="fa fa-bars"></i>
-        </Link>
+        </button>
         <nav ref={navItems} className="nav-items ">
           <Link
             className="nav-item"
-            onClick={window.innerWidth <= 600 && toggleItems}
+            onClick={window.innerWidth <= 600 ? toggleItems : () => {}}
             to="/create"
           >
             Generate a QR Code
           </Link>
           <Link
             className="nav-item"
-            onClick={window.innerWidth <= 600 && toggleItems}
+            onClick={window.innerWidth <= 600 ? toggleItems : () => {}}
             to="/scan"
           >
             Scan a QR Code
           </Link>
-          <Link
+          <button
+            href="#"
             className="nav-item"
             onClick={() => {
               localStorage.clear();
@@ -48,7 +49,7 @@ export const NavBar = () => {
             }}
           >
             Clear local storage
-          </Link>
+          </button>
         </nav>
       </div>
       {account ? <ConnectedBar></ConnectedBar> : ""}
